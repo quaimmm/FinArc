@@ -22,7 +22,9 @@ No banks. No friction. Just a simple payment flow.
 
 ## Demo
 
-![Demo](screenshot.png)
+![Preview](Page-1.png)
+![Preview](Page-2.png)
+![Preview](Page-3.png)
 
 ---
 
