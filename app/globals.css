@@ -1,26 +1,74 @@
 @import "tailwindcss";
 
+/* === FinArc Theme === */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-top: #07142b;
+  --bg-mid: #08204a;
+  --bg-bottom: #030817;
+
+  --surface: rgba(8, 18, 38, 0.62);
+  --surface-strong: rgba(10, 22, 46, 0.82);
+  --surface-soft: rgba(255, 255, 255, 0.05);
+
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  --text-main: #f5f7fb;
+  --text-soft: #b8c4da;
+  --text-dim: #7e8aa3;
+
+  --accent: #e7eefb;
+  --accent-blue: #77a8ff;
+
+  --success: #22c55e;
+  --warning: #f59e0b;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* === Base === */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at 20% 15%, rgba(90, 140, 255, 0.18), transparent 26%),
+    radial-gradient(circle at 80% 20%, rgba(84, 210, 255, 0.1), transparent 22%),
+    radial-gradient(circle at 50% 100%, rgba(29, 78, 216, 0.18), transparent 28%),
+    linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 45%, var(--bg-bottom) 100%);
+  min-height: 100vh;
+}
+
+/* === Components === */
+@layer components {
+  .finarc-panel {
+    @apply rounded-[28px] border backdrop-blur-2xl shadow-2xl;
+    background: var(--surface);
+    border-color: var(--border);
+  }
+
+  .finarc-card {
+    @apply rounded-3xl border backdrop-blur-xl;
+    background: var(--surface-soft);
+    border-color: var(--border);
+  }
+
+  .finarc-button-primary {
+    @apply rounded-2xl px-5 py-3 text-sm font-medium transition;
+    background: linear-gradient(180deg, #f7fbff 0%, #dce8ff 100%);
+    color: #07142b;
+  }
+
+  .finarc-button-secondary {
+    @apply rounded-2xl px-5 py-3 text-sm transition;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+  }
+
+  .finarc-input {
+    @apply w-full rounded-2xl px-4 py-3 outline-none;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+  }
 }
